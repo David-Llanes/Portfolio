@@ -111,4 +111,14 @@ body {
   .footer {
     grid-area: footer;
   }
+
+  @media (width < 768px) {
+    grid-template-areas:
+      'explorer'
+      'header'
+      'main'
+      'footer';
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-columns: unset;
+  }
 }

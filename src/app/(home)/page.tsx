@@ -2,7 +2,7 @@ import { ScrollArea } from '@/components/ui/scroll-area'
 
 export default function Home() {
   return (
-    <main className="main overflow-y-auto bg-background">
+    <main className="main overflow-x-hidden bg-background whitespace-nowrap">
       <ScrollArea className="h-full">
         <div className="h-[200vh] text-center pt-10 text-5xl font-bold flex flex-col gap-2 items-center">
           <p className="text-muted-foreground bg-muted self-stretch">
