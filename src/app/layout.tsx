@@ -1,11 +1,12 @@
-import type { Metadata } from 'next'
-import localFont from 'next/font/local'
 import './globals.css'
+import type { Metadata } from 'next'
+import { DevTools } from '@/components/dev'
+import localFont from 'next/font/local'
 import Sidebar from './_components/sidebar'
 import Footer from './_components/footer'
 import TabBar from './_components/tab-bar'
-import { ThemeProvider } from '@/components/providers/theme'
-import { DevTools } from '@/components/dev'
+import Providers from '@/components/providers/providers'
+import AppContainer from '@/components/app-container'
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -33,22 +34,15 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased text-foreground bg-popover font-sans`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <div className="layout h-dvh overflow-hidden max-w-[1920px] mx-auto min-[1921px]:border-x">
+        <Providers>
+          <AppContainer>
             <TabBar />
             <Sidebar />
-            <main className="main overflow-y-auto bg-background">
-              {children}
-            </main>
+            {children}
             <Footer />
-          </div>
-          <DevTools />
-        </ThemeProvider>
+            <DevTools />
+          </AppContainer>
+        </Providers>
       </body>
     </html>
   )
