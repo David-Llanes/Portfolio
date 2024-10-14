@@ -14,9 +14,9 @@ body {
 
 @layer base {
   :root {
-    --background: 215 17% 89%;
+    --background: 215 17% 88%;
     --foreground: 216 30% 13%;
-    --card: 215 17% 85.5%;
+    --card: 215 17% 85%;
     --card-foreground: 0 0% 18%;
     --popover: 215 17% 83%;
     --popover-foreground: 0 0% 18%;
@@ -24,7 +24,7 @@ body {
     --primary-foreground: 0 0% 98%;
     --secondary: 251 100% 80%;
     --secondary-foreground: 216 30% 13%;
-    --muted: 215 17% 87;
+    --muted: 215 17% 86;
     --muted-foreground: 215 17% 37;
     --accent: 215 17% 87;
     --accent-foreground: 216 30% 13%;
@@ -41,7 +41,7 @@ body {
     --radius: 0.5rem;
 
     --class: 348 70% 72%;
-    --string: 148 53% 65%;
+    --string: 148 53% 60%;
     --keyword: 212 100% 77%;
     --function: 41 77% 79%;
     --params: 264 46% 86%;

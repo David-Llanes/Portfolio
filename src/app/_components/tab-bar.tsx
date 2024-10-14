@@ -1,9 +1,6 @@
-'use client'
-
-import { cn } from '@/lib/utils'
 import { CodeXml } from 'lucide-react'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import TabItem from './tab-item'
+import { cn } from '@/lib/utils'
 
 export default function TabBar() {
   return (
@@ -18,30 +15,22 @@ export default function TabBar() {
   )
 }
 
-function TabItem({
-  href,
-  children,
-}: {
-  href: string
-  children: React.ReactNode
-}) {
-  const pathname = usePathname()
-  const isSelected = pathname === href
-
+export function TabBarError() {
   return (
-    <Link href={href} className="h-full">
-      <li
-        className={cn(
-          'px-4 text-xs md:text-sm bg-card h-full content-center flex gap-2 items-center font-semibold text-muted-foreground hover:text-foreground hover:underline hover:cursor-pointer overflow-hidden',
-          isSelected &&
-            'text-primary border-t-2 border-primary hover:text-primary'
-        )}
-      >
-        <CodeXml className="size-3 md:size-4 text-[#f35e2a] shrink-0" />
-        <h2 className="text-ellipsis overflow-hidden text-nowrap">
-          {children}
-        </h2>
-      </li>
-    </Link>
+    <nav className="header h-10 bg-card max-w-full overflow-x-hidden">
+      <ul className="flex items-center h-full divide-x-[1px] divide-border w-full">
+        <li
+          className={cn(
+            'px-4 text-xs md:text-sm h-full content-center flex gap-2 items-center font-semibold text-muted-foreground hover:text-foreground hover:underline hover:cursor-pointer overflow-hidden',
+            'text-destructive border-t-2 border-destructive hover:text-destructive bg-background'
+          )}
+        >
+          <CodeXml className="size-3 md:size-4 text-[#f35e2a] shrink-0" />
+          <h2 className="text-ellipsis overflow-hidden text-nowrap">
+            error.html
+          </h2>
+        </li>
+      </ul>
+    </nav>
   )
 }
