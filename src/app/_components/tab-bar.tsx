@@ -2,14 +2,25 @@ import { CodeXml } from 'lucide-react'
 import TabItem from './tab-item'
 import { cn } from '@/lib/utils'
 
+const TABS = [
+  { href: '/', name: 'index', extension: 'html' },
+  { href: '/about-me', name: 'about-me', extension: 'html' },
+  { href: '/projects', name: 'projects', extension: 'html' },
+  { href: '/contact', name: 'contact', extension: 'html' },
+]
+
 export default function TabBar() {
   return (
     <nav className="header h-10 bg-card max-w-full overflow-x-hidden">
       <ul className="flex items-center h-full divide-x-[1px] divide-border w-full">
-        <TabItem href="/">index.html</TabItem>
-        <TabItem href="/about-me">about-me.html</TabItem>
-        <TabItem href="/projects">projects.html</TabItem>
-        <TabItem href="/contact">contact.html</TabItem>
+        {TABS.map((tab) => (
+          <TabItem
+            key={tab.href}
+            href={tab.href}
+            name={tab.name}
+            extension={tab.extension}
+          />
+        ))}
       </ul>
     </nav>
   )
@@ -25,7 +36,7 @@ export function TabBarError() {
             'text-destructive border-t-2 border-destructive hover:text-destructive bg-background'
           )}
         >
-          <CodeXml className="size-3 md:size-4 text-[#f35e2a] shrink-0" />
+          <CodeXml className="size-3 md:size-4 text-orange-600 shrink-0" />
           <h2 className="text-ellipsis overflow-hidden text-nowrap">
             error.html
           </h2>
