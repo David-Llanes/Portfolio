@@ -1,6 +1,14 @@
 'use client'
 
+import { ThemeToggle } from '@/components/theme-toggle'
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover'
+import { Separator } from '@/components/ui/separator'
 import { cn } from '@/lib/utils'
+
 import {
   ChevronRight,
   CodeXml,
@@ -84,7 +92,19 @@ export default function Explorer() {
           className="size-6 hover:cursor-pointer hover:text-foreground"
           onClick={() => setIsOpen(!isOpen)}
         />
-        <Settings className="size-6 hover:cursor-pointer hover:text-foreground" />
+        <Popover>
+          <PopoverTrigger>
+            <Settings className="size-6 hover:cursor-pointer hover:text-foreground" />
+          </PopoverTrigger>
+          <PopoverContent align="start" alignOffset={100}>
+            <p className="font-bold">SETTINGS</p>
+            <Separator />
+
+            <div className="mt-2">
+              <ThemeToggle />
+            </div>
+          </PopoverContent>
+        </Popover>
       </div>
       <nav
         className={cn(
@@ -95,7 +115,7 @@ export default function Explorer() {
         )}
       >
         <div className="h-10 px-4 flex justify-between items-center">
-          <p className="font-semibold ">EXPLORER</p>
+          <p className="font-semibold">EXPLORER</p>
           <Ellipsis className="size-4 hover:cursor-pointer hover:text-foreground text-muted-foreground" />
         </div>
 

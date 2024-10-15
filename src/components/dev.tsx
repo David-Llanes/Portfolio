@@ -1,4 +1,4 @@
-import { ThemeToggle } from './theme-toggle'
+import { ThemeToggle2 } from './theme-toggle'
 
 export function DevTools() {
   if (process.env.NODE_ENV === 'production') return null
@@ -16,7 +16,7 @@ export function DevTools() {
       </div>
       <div>
         {/* THEME TOGGLE */}
-        <ThemeToggle />
+        <ThemeToggle2 />
       </div>
     </div>
   )
