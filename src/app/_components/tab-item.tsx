@@ -19,22 +19,24 @@ export default function TabItem({
   const fileName = `${name}.${extension}`
 
   return (
-    <Link href={href} className="h-full overflow-hidden">
-      <li
+    <li className="h-full overflow-hidden">
+      <Link
+        href={href}
         className={cn(
-          'px-4 text-sm bg-card h-full content-center flex gap-1.5 items-center font-semibold text-muted-foreground hover:text-foreground hover:underline hover:cursor-pointer',
+          'px-4 text-xs sm:text-sm bg-card h-full flex gap-1.5 items-center font-semibold text-muted-foreground border-r-border/70 border-r border-t-2 border-t-card',
+          'hover:text-foreground hover:underline hover:cursor-pointer',
           isSelected &&
-            'text-primary border-t-2 border-primary hover:text-primary bg-background'
+            'text-primary border-t-2 border-r-border border-t-primary hover:text-primary bg-background'
         )}
       >
-        <CodeXml className="size-3 md:size-4 text-orange-600 shrink-0 hidden sm:block" />
-        <h2 className="text-ellipsis overflow-hidden text-nowrap hidden sm:block">
+        <CodeXml className="size-3 md:size-4 text-orange-600 shrink hidden sm:block" />
+        <h2 className="text-ellipsis overflow-hidden text-nowrap">
           {fileName}
         </h2>
-        <h2 className="text-ellipsis overflow-hidden text-nowrap block sm:hidden">
+        {/* <h2 className="text-ellipsis overflow-hidden text-nowrap block sm:hidden">
           {name}
-        </h2>
-      </li>
-    </Link>
+        </h2> */}
+      </Link>
+    </li>
   )
 }

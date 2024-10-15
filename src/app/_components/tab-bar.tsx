@@ -12,7 +12,7 @@ const TABS = [
 export default function TabBar() {
   return (
     <nav className="header h-10 bg-card max-w-full overflow-x-hidden">
-      <ul className="flex items-center h-full divide-x-[1px] divide-border w-full">
+      <ul className="flex items-center h-full w-full">
         {TABS.map((tab) => (
           <TabItem
             key={tab.href}
@@ -29,10 +29,10 @@ export default function TabBar() {
 export function TabBarError() {
   return (
     <nav className="header h-10 bg-card max-w-full overflow-x-hidden">
-      <ul className="flex items-center h-full divide-x-[1px] divide-border w-full">
+      <ul className="flex items-center h-full w-full">
         <li
           className={cn(
-            'px-4 text-xs md:text-sm h-full content-center flex gap-2 items-center font-semibold text-muted-foreground hover:text-foreground hover:underline hover:cursor-pointer overflow-hidden',
+            'px-4 text-xs md:text-sm h-full content-center flex gap-2 items-center font-semibold text-muted-foreground hover:text-foreground hover:underline hover:cursor-pointer overflow-hidden border-r-border/70 border-r',
             'text-destructive border-t-2 border-destructive hover:text-destructive bg-background'
           )}
         >

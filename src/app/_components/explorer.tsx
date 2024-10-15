@@ -64,11 +64,13 @@ const NODES: Node[] = [
 export default function Explorer() {
   const [isOpen, setIsOpen] = useState(false)
 
+  const handleClose = () => setIsOpen(false)
+
   return (
     <header
       className={cn(
         'explorer grid whitespace-nowrap overflow-hidden bg-popover text-[clamp(0.75rem,1.2vw,0.875rem)]',
-        'md:grid-cols-[auto_auto]'
+        'md:grid-cols-[auto_auto] select-none'
       )}
     >
       <div
@@ -86,26 +88,30 @@ export default function Explorer() {
       </div>
       <nav
         className={cn(
-          'transition-all bg-card flex flex-col gap-2',
+          'transition-all bg-card flex flex-col',
           'md:border-r md:w-0',
           'max-md:border-b max-md:h-0 ',
           isOpen && 'md:w-[clamp(0px,30vw,300px)] max-md:h-[250px]'
         )}
       >
         <div className="h-10 px-4 flex justify-between items-center">
-          <p className="font-semibold">EXPLORER</p>
+          <p className="font-semibold ">EXPLORER</p>
           <Ellipsis className="size-4 hover:cursor-pointer hover:text-foreground text-muted-foreground" />
         </div>
 
-        <div className="px-4 py-0.5 flex w-full justify-between items-center">
-          <p className="font-bold">MY PORTFOLIO</p>
+        <div className="px-4 flex w-full justify-between items-center">
+          <p className="font-bold h-6 content-center">MY PORTFOLIO</p>
           <CopyMinus className="size-4 rotate-180 hover:cursor-pointer text-muted-foreground hover:text-foreground" />
         </div>
 
         {/* //! Componente recursivo */}
-        <ul className="relative">
+        <ul className="relative ">
           {NODES.map((node) => (
-            <FileSystemItem key={node.name} node={node} />
+            <FileSystemItem
+              key={node.name}
+              node={node}
+              onSelectItem={handleClose}
+            />
           ))}
         </ul>
       </nav>
@@ -114,21 +120,35 @@ export default function Explorer() {
 }
 
 // TODO: Hacer que con un before se vea que componente esta siendo seleccionado.
-function FileSystemItem({ node }: { node: Node }) {
+function FileSystemItem({
+  node,
+  onSelectItem,
+}: {
+  node: Node
+  onSelectItem: () => void
+}) {
   const [isOpen, setIsOpen] = useState(() => node.name === 'src')
 
   return (
     <li
       key={node.name}
-      className="text-[clamp(0.875rem,1.6vw,1rem)] font-bold text-muted-foreground"
+      className={cn(
+        'text-[clamp(0.875rem,1.6vw,1rem)] font-bold text-muted-foreground'
+      )}
     >
-      <h3 className={cn('flex items-center gap-1.5 py-0.5 pl-4')}>
+      <h3
+        className={cn(
+          'flex items-center gap-1.5 py-0.5 pl-4 relative'
+          // 'before:absolute before:h-full before:w-[1px] before:bg-border before:-ml-4 hover:before:bg-foreground'
+        )}
+      >
         {node.files && node.files.length > 0 && (
           <button onClick={() => setIsOpen(!isOpen)}>
             <ChevronRight
-              className={`size-4 text-muted-foreground ${
+              className={cn(
+                'size-4 text-muted-foreground',
                 isOpen && 'rotate-90'
-              }`}
+              )}
             />
           </button>
         )}
@@ -136,7 +156,8 @@ function FileSystemItem({ node }: { node: Node }) {
         {node.isLink ? (
           <Link
             href={node.route}
-            className="items-center gap-1.5 inline-flex overflow-hidden hover:cursor-pointer hover:text-foreground"
+            className="items-center gap-1.5 inline-flex overflow-hidden hover:cursor-pointer hover:text-foreground hover:underline"
+            onClick={onSelectItem}
           >
             {node.files ? (
               <Folder className="size-4 text-muted-foreground" />
@@ -148,7 +169,7 @@ function FileSystemItem({ node }: { node: Node }) {
             </span>
           </Link>
         ) : (
-          <div className="items-center gap-1.5 inline-flex overflow-hidden">
+          <div className="items-center gap-1.5 inline-flex overflow-hidden ">
             {node.files ? (
               <Folder className="size-4 text-muted-foreground" />
             ) : (
@@ -162,9 +183,13 @@ function FileSystemItem({ node }: { node: Node }) {
       </h3>
 
       {isOpen && (
-        <ul className="overflow-hidden pl-6">
+        <ul className="overflow-hidden ml-6 border-l border-l-border">
           {node.files?.map((file) => (
-            <FileSystemItem key={file.name} node={file} />
+            <FileSystemItem
+              key={file.name}
+              node={file}
+              onSelectItem={onSelectItem}
+            />
           ))}
         </ul>
       )}
