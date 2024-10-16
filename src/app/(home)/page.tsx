@@ -2,11 +2,11 @@ import { ScrollArea } from '@/components/ui/scroll-area'
 
 export default function Home() {
   return (
-    <main className="main overflow-x-hidden bg-background whitespace-nowrap">
+    <main className="content bg-background overflow-x-hidden main whitespace-nowrap">
       <ScrollArea className="h-full">
         <div className="h-[200vh] text-center pt-10 text-5xl font-bold flex flex-col gap-2 items-center">
-          <p className="text-muted-foreground bg-muted self-stretch">
-            Contenido <span className="text-foreground">OMG</span>
+          <p className="text-muted-foreground bg-muted self-stretch my-2">
+            Selección <span className="text-foreground">- Normal -</span>
           </p>
 
           <button className="bg-gradient-to-r from-grad-start to-grad-end text-primary-foreground p-3 rounded-lg mb-2">
