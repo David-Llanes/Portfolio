@@ -10,6 +10,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { cn } from '@/lib/utils'
+import dynamic from 'next/dynamic'
 
 const THEMES = ['light', 'dark', 'system']
 
@@ -39,6 +40,11 @@ export function ThemeToggle() {
     </div>
   )
 }
+
+export const DynamicThemeToggle = dynamic(async () => ThemeToggle, {
+  ssr: false,
+  loading: ThemeToggle,
+})
 
 export function ThemeToggle2() {
   const { setTheme } = useTheme()
