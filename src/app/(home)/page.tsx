@@ -2,8 +2,8 @@ import { ScrollArea } from '@/components/ui/scroll-area'
 
 export default function Home() {
   return (
-    <main className="content bg-background overflow-x-hidden main whitespace-nowrap">
-      <ScrollArea className="h-full">
+    <ScrollArea className="main">
+      <main className="bg-background content h-full overflow-x-hidden">
         <div className="h-[200vh] text-center pt-10 text-5xl font-bold flex flex-col gap-2 items-center">
           <p className="text-muted-foreground bg-muted self-stretch my-2">
             Selección <span className="text-foreground">- Normal -</span>
@@ -49,7 +49,7 @@ export default function Home() {
             Comment
           </button>
         </div>
-      </ScrollArea>
-    </main>
+      </main>
+    </ScrollArea>
   )
 }
