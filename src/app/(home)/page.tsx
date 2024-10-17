@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <ScrollArea className="main">
       <main className="bg-background content h-full overflow-x-hidden">
-        <div className="h-[200vh] text-center pt-10 text-5xl font-bold flex flex-col gap-2 items-center">
+        <div className="text-center pt-10 text-5xl font-bold flex flex-col gap-2 items-center">
           <p className="text-muted-foreground bg-muted self-stretch my-2">
             Selección <span className="text-foreground">- Normal -</span>
           </p>

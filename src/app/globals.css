@@ -157,3 +157,14 @@ body {
     }
   }
 }
+
+@layer utilities {
+  .item-selected::before {
+    position: absolute;
+    content: '';
+    z-index: -1;
+    height: 1.8em;
+    inset-inline: 0;
+    display: none;
+  }
+}

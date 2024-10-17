@@ -2,7 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { DevTools } from '@/components/dev'
 import localFont from 'next/font/local'
-import Explorer from './_components/explorer'
+import ActivityBar from './_components/activity-bar'
 import Footer from './_components/footer'
 import TabBar from './_components/tab-bar'
 import Providers from '@/components/providers/providers'
@@ -37,7 +37,7 @@ export default function RootLayout({
         <Providers>
           <AppContainer>
             <TabBar />
-            <Explorer />
+            <ActivityBar />
             {children}
             <Footer />
             <DevTools />
