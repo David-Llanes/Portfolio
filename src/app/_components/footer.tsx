@@ -38,7 +38,7 @@ export default function Footer() {
       </Link>
 
       <button
-        name="virtualAssistant"
+        aria-label="Virtual Assistant"
         className="ml-auto px-1 h-full flex items-center hover:bg-accent text-destructive dark:text-function group"
       >
         <GitHubCopilot className="size-5 animate-bounce group-hover:paused" />
