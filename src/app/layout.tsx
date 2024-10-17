@@ -26,6 +26,17 @@ export const metadata: Metadata = {
   },
   description:
     'Website of David Alejandro Llanes Bojorquez, Full-Stack Software Engineer specializing web development.',
+  openGraph: {
+    siteName: 'David Llanes Portfolio',
+    type: 'website',
+    url: process.env.NEXT_PUBLIC_BASE_URL,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@DavidLlanes',
+    description:
+      'David Alejandro Llanes Bojorquez, Full-Stack Software Engineer specializing web development.',
+  },
 }
 
 export default function RootLayout({

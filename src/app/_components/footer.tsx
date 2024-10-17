@@ -37,7 +37,10 @@ export default function Footer() {
         </span>
       </Link>
 
-      <button className="ml-auto px-1 h-full flex items-center hover:bg-accent text-destructive dark:text-function group">
+      <button
+        name="virtualAssistant"
+        className="ml-auto px-1 h-full flex items-center hover:bg-accent text-destructive dark:text-function group"
+      >
         <GitHubCopilot className="size-5 animate-bounce group-hover:paused" />
       </button>
     </footer>
