@@ -1,4 +1,10 @@
+import { Metadata } from 'next'
 import { ScrollArea } from '@/components/ui/scroll-area'
+
+export const metadata: Metadata = {
+  description:
+    'Be welcome to my Website, I am a full-stack web developer specializing in React, Next.js, Node.js, and Docker. Open to internships and part-time roles, always eager to learn and build optimized, high-performance applications.',
+}
 
 export default function Home() {
   return (

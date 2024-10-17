@@ -20,8 +20,12 @@ const geistMono = localFont({
 })
 
 export const metadata: Metadata = {
-  title: 'David Llanes',
-  description: 'Full-Stack Software Engineer',
+  title: {
+    default: 'David Llanes - Full-Stack Software Engineer',
+    template: '%s | David Llanes',
+  },
+  description:
+    'Website of David Alejandro Llanes Bojorquez, Full-Stack Software Engineer specializing web development.',
 }
 
 export default function RootLayout({
