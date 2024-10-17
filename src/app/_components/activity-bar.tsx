@@ -53,7 +53,14 @@ export default function ActivityBar() {
 
       {/* //! Collapsable */}
       {/* overflow-auto se puso para que el ScrollArea funcione */}
-      <div className={cn('grow bg-card overflow-auto', !isOpen && 'hidden')}>
+      {/* 'visible' es accesible por tabs, invisible no */}
+      <div
+        className={cn(
+          'grow bg-card overflow-auto',
+          isOpen ? 'visible' : 'invisible'
+        )}
+        aria-expanded={isOpen}
+      >
         <Explorer onSelectItem={handleClose} />
       </div>
     </header>
