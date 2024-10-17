@@ -36,11 +36,11 @@ export default function ActivityBar() {
           'max-md:w-full max-md:h-[50px] max-md:px-3'
         )}
       >
-        <button onClick={() => setIsOpen(!isOpen)}>
+        <button name="menu" onClick={() => setIsOpen(!isOpen)}>
           <Menu className="size-6 hover:cursor-pointer hover:text-foreground" />
         </button>
         <Popover>
-          <PopoverTrigger>
+          <PopoverTrigger name="settings">
             <Settings className="size-6 hover:cursor-pointer hover:text-foreground active:rotate-45 duration-100" />
           </PopoverTrigger>
           <PopoverContent align="start" alignOffset={100}>
