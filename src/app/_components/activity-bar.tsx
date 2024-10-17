@@ -13,7 +13,7 @@ import { Menu, Settings } from 'lucide-react'
 import Explorer from './explorer'
 
 export default function ActivityBar() {
-  const [isOpen, setIsOpen] = useState(true)
+  const [isOpen, setIsOpen] = useState(false)
   const handleClose = () => setIsOpen(false)
 
   return (
