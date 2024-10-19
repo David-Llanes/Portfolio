@@ -56,7 +56,7 @@ export default function Explorer({
   onSelectItem: () => void
 }) {
   return (
-    <nav className="flex flex-col h-full">
+    <nav className="flex flex-col h-full overflow-x-hidden">
       <div className="shrink-0 h-10 px-4 flex justify-between items-center">
         <span className="font-semibold">EXPLORER</span>
         <Ellipsis className="size-4 hover:cursor-pointer hover:text-foreground text-muted-foreground" />

@@ -47,7 +47,6 @@ body {
     --params: 264 46% 86%;
     --comment: 214 14% 56%;
     --gradient-start: 159 88% 44%;
-    /* --gradient-start: var(--secondary); */
     --gradient-end: var(--primary);
   }
   .dark {
